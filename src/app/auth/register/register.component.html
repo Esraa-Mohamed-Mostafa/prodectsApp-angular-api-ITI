@@ -1,0 +1,128 @@
+<section class=" py-5 mx-auto  marginmargin" >
+    <div class=" col-11 col-lg-6  border bg-white border-primary mx-auto p-5 bg-white">
+
+        <form [formGroup]="cardsForm" (ngSubmit)="handleFormSubmit()">
+            <div class="container p-4 ">
+                <h3 class="mb-5 text-center">Create account
+                </h3>
+
+
+                <div class="form-group my-3">
+                    <label class="sr-only mb-1" for="usernameInput">User Name</label>
+                    <input type="text" class="form-control shadow px-1  py-2 " id="usernameInput" placeholder=""
+                        formControlName="username">
+                    <div id="emailHelp" class="form-text text-danger" *ngIf="cardsForm.controls['username'].
+                touched && cardsForm.controls['username'].invalid">
+                        <span *ngIf="cardsForm.controls['username'].errors?.['required']">This field is required</span>
+                        <span *ngIf="cardsForm.controls['username'].errors?.['cannotContainSpace']">Whitespace in not
+                            allowed</span>
+
+                    </div>
+                </div>
+
+                <!-- <div class="form-group  my-3">
+                    <label class=" mb-1" for="nameInput">
+                        Name
+                    </label>
+                    <input type="text" class="form-control  shadow px-1  py-2 " id="nameInput" placeholder=""
+                        formControlName="name">
+                    <div id="" class="form-text text-danger" *ngIf="cardsForm.controls['name'].
+                touched">
+                        <span *ngIf="cardsForm.controls['name'].errors?.['required']">This field is required</span>
+                    </div>
+                </div> -->
+
+                <div class="form-group my-3">
+                    <label class=" mb-1 " for="inputEmail">Email </label>
+                    <input type="email" class="form-control shadow px-1  py-2 " id="inputEmail" placeholder=""
+                        formControlName="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+                    <div id="emailHelp" class="form-text text-danger" *ngIf="cardsForm.controls['email'].
+           touched && cardsForm.controls['email'].invalid">
+                        <span *ngIf="cardsForm.controls['email'].errors?.['required']">This field is required</span>
+                        <span *ngIf="cardsForm.controls['email'].errors?.['pattern']">Email is invalid</span>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group  my-3">
+                    <label class=" mb-1" for="inputPassword">Password</label>
+                    <input type="password" class="form-control shadow  px-1  py-2 " id="inputPassword" placeholder=""
+                        formControlName="password" required>
+
+                    <div id="emailHelp" class="form-text text-danger" *ngIf="cardsForm.controls['password'].
+            touched && cardsForm.controls['password'].invalid">
+                        <span *ngIf="cardsForm.controls['password'].errors?.['required']">This field is required</span>
+                        <span *ngIf="cardsForm.controls['password'].errors?.['pattern']">
+                            Password should be at least 8 characters in length ,
+                            contains at least one lowercase , one uppercase,
+                            at least one digit and special characterers.
+                        </span>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group  my-3">
+                    <label class=" mb-1" for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control shadow px-1  py-2" id="confirmPassword" placeholder=""
+                        formControlName="confirmPassword" required>
+
+                    <div id="" class="form-text text-danger" *ngIf="cardsForm.controls['confirmPassword'].
+            touched">
+                        <span *ngIf="cardsForm.controls['confirmPassword'].errors?.['required']">
+                            This field is required</span>
+                        <span *ngIf="cardsForm.errors?.['misMatch']">
+                            confirm password not match password</span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-row  " formArrayName="alternativeAdress">
+
+                    <div class="d-flex  flex-column my-4" *ngFor="let item of alternativeAdress.controls; let i=index">
+                        <label>Address :</label>
+                        <div class="my-3 ">
+                            <!-- <input class="form-control mx-4 shadow" type="text" [formControlName]="i"
+                                formControlName="a"> -->
+                            <label class=" mb-1">Street </label>
+
+                            <input class="form-control px-1  mb-2 py-2 shadow" type="text" [formControlName]="i"
+                                required>
+
+                            <div class="d-flex mt-4">
+                                <label class=" mb-1">City</label>
+                                <input class="form-control m-2 px-1  py-2 shadow" type="text" [formControlName]="i"
+                                    required>
+                                <label class=" mb-1">Country </label>
+                                <input class="form-control m-2 px-1  py-2 shadow" type="text" [formControlName]="i"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- <small [class.d-none]="a?.valid|| a?.untouched">email is required </small>   -->
+
+                        <div class=" my-2 ">
+                            <button type="button" class="btn bg-light border p-2 m-2" (click)="addanotheraddress()">+ Add
+                                another
+                                address</button>
+                            <button class="btn bg-light border  p-2" (click)="removeBook(i)">Delete</button>
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-2 p-2 text-center w-100"
+                        [disabled]="cardsForm.invalid">Register</button>
+                    <h3 class="text-center  py-3 ">Already have account!<a routerLink="/login"> login</a></h3>
+
+                </div>
+
+
+            </div>
+
+        </form>
+
+    </div>
+</section>

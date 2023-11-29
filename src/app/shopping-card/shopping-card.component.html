@@ -1,0 +1,45 @@
+<section class="h-100 h-custom marginmargin" style="background-color: #eaeded;">
+    <div class="container py-5 h-100">
+        <div class=" border cardborder bg-white p-4">
+            <h4 class="mb-3 text-body ">Shopping Cart</h4>
+            <div class="border cardborder bg-white p-3 mb-3">
+                <div class="card-body">
+                    
+                    <div class="d-flex justify-content-between  flex-column flex-lg-row py-5" *ngFor="let card of cart ; index as i">
+                        <div class="d-flex flex-row align-items-center col-sm-12 col-lg-5 mb-4">
+                            <div>
+                                <img [src]="card.images[0]" class="img-fluid rounded-3" alt="Shopping item"
+                                    style="width: 150px;" />
+                            </div>
+                            <div class="ms-3">
+                                <h5>{{card.title}}</h5>
+                                <p class="small mb-0">{{card.description}}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center col-sm-12 col-lg-5">
+
+                            <div class="d-flex align-items-center ">
+                                <button class="btn button" (click)="decreaseQuantity(card, i)">-</button>
+                                <h4 class="mx-4 mb-0">{{card.quantity}}</h4>
+                                <button class="btn button" (click)="increaseQuantity(card)">+</button>
+                            </div>
+
+                            <button style="width: 50px; margin-left: 20px;" (click)="removeProduct(i)"
+                                class="btn button">x</button>
+
+                            <div style="width: 150px;margin-left: 20px;">
+                                <h5 class="mb-0">{{card.price | currency:"EGP":"symbol"}}</h5>
+                            </div>
+                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+
+                    </div>
+                    <h4 class="mx-4 mb-0">Total: {{total}}</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

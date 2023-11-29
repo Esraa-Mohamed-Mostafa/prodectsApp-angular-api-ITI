@@ -1,0 +1,35 @@
+<section class=" py-5 ">
+    <div class="container">
+        <div class=" cardDetails my-5 p-5 flex-column flex-lg-row d-flex justify-content">
+            <div class="col-sm-12 col-lg-5 mx-5">
+                <img [src]="details.images[0]" />
+            </div>
+            <div class=" col-sm-12 col-lg-5 p-3">
+                <div class="d-flex align-items-center">
+                    <h3 class="card_title  mb-3 me-5"> {{details.title}}</h3>
+                    <div *ngIf="details.stock> 0; then thenBlock; else elseBlock" ></div>
+                    <ng-template #thenBlock>
+                        <span class="badge  text-bg-primary mb-3 py-2 my-3"> In stock</span>
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <span class="badge text-bg-danger mb-3 py-2 my-3">out of stock</span>
+                    </ng-template>
+                </div>
+                <p class="card_text mb-2 "> {{details.description}} </p>
+                <div class="mb-3">
+                    <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+                </div>
+
+                <h4 class="mb-3"> {{details.price | currency:"EGP" :"symbol" }} </h4>
+
+                <div class="d-flex my-2">
+                    <!-- <button class="mx-2 btn btn-success py-1 ">Buy now
+                    </button> -->
+
+                    <button class="mx-2 btn btn-light py-2 border-primary ">Add To
+                        Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

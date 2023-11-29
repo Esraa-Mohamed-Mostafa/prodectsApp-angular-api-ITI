@@ -1,0 +1,15 @@
+<div class=" my-5  divmargin">
+    <div class="row ">
+      <div class="col-12 d-flex flex-wrap">
+        <div class=" col-3 col-sm-2 col-lg-1  divmargin" *ngFor="let photo of photos" (click)="handleImageClick(photo)">
+          <div class="imgsize bg-white">
+            <img class="img-fluid border-5" [src]="photo.url" alt="Photo">
+          </div>
+          <h5 class="my-3 text-center text">{{ photo.productName }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  

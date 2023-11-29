@@ -1,0 +1,20 @@
+.footer {
+    background-color:  #eaeded;;
+    box-shadow: #dde2e2 0px 5px 15px;
+}
+.footer__item ul li a {
+    color: #A5ACBA;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.footer__item ul li {
+    margin-bottom: 1rem;
+}
+
+.footer__rights {
+    color: #A5ACBA;
+    text-align: center;
+    border-top: 1px solid #d1d6d6;
+}
